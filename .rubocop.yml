@@ -1,0 +1,19 @@
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/**
+  TargetRubyVersion: 2.1
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/DotPosition:
+  EnforcedStyle: leading
+
+Encoding:
+  Enabled: false
+LineLength:
+  Max: 90
+Documentation:
+  Enabled: false
