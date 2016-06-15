@@ -65,3 +65,7 @@ group :development do
   # tidy up console output
   gem "awesome_print", require: "ap"
 end
+
+group :production do
+  gem "rails_12factor"
+end
