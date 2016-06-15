@@ -1,0 +1,93 @@
+- content_for :title, "Dashboard"
+.col-md-12
+  .box
+    .box-body
+      .col-md-2
+        =image_tag "bot_blue_full.png", style:"margin-top:15px"
+      .col-md-10
+        %h4
+          %p
+            Select the page you for which you want to add a chat bot by clicking
+            the "activate" button in the appropriate row below.
+        %p
+          You will be guided through the following steps:
+        %dl.dl-horizontal
+          %dt
+            Select Bot Type
+          %dd
+            We have three predefined bot types, each with their own unique
+            skills and super powers.
+          %dt
+            Add Data
+          %dd
+            We'll need you to provide us with some data so that our bots know
+            the answers you'd like to give.
+          %dt
+            Test
+          %dd
+            Before you go live you can test out your bot using our interactive
+            tool.  This not only gives you ultimate confidence in your new chat
+            operator, but gives you an opportunity to train the bot further
+          %dt
+            Launch
+          %dd
+            Yay!  This is the fun part.  You press the big red button and your
+            robot creation comes to life and starts serving your page and website
+            visitors.
+.col-md-4
+  .small-box.bg-aqua
+    .inner
+      %h3
+        =@managed_pages.count
+      %p Pages Available
+    .icon
+      %i.fa.fa-file-o
+    .small-box-footer
+      You are admin of these FB pages
+  .small-box.bg-green
+    .inner
+      %h3 0
+      %p Bots Active
+    .icon
+      %i.fa.fa-comment
+    .small-box-footer
+      You have bots active on these pages
+  .small-box.bg-red
+    .inner
+      %h3
+        = @managed_pages.count
+      %p Un-Managed Pages
+    .icon
+      %i.fa.fa-user-plus
+    .small-box-footer
+      You have no coverage on these pages
+.col-md-8
+  .box
+    .box-body.no-padding
+      %table.table
+        %tbody
+          %tr
+            %th{style:"width:50px"}
+              Page
+            %th
+
+            %th
+              Bot Status
+            %th{style:"width: 40px"}
+              Actions
+        - @managed_pages.each do |page|
+          %tr
+            %td
+              =image_tag page.fb_page_logo_s, class:"img-circle"
+            %td
+              =page.title
+              .progress.progress-xs.active
+                .progress-bar{style:"background: silver; width: 10%"}
+            %td
+              %h4
+                %span.label.label-default
+                  Not Requested
+            %td
+              %button.btn.btn-block.btn-success.btn-flat{type:"button"}
+                %i.fa.fa-user-plus
+                Activate

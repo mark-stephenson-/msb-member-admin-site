@@ -23,9 +23,19 @@ gem "jbuilder", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 
 # use haml templating
-gem "haml"
+gem "haml-rails"
+# use admin LTE theme
+gem "adminlte2-rails"
+
 # use Puma web server
 gem "puma"
+
+# authentication gems
+gem "devise"
+gem "omniauth-facebook"
+
+# facebook graph API
+gem "koala", "~> 2.2"
 
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"
@@ -44,11 +54,14 @@ group :development do
   # Follow style guides
   gem "rubocop"
   gem "haml-lint"
-  gem "scss_lint"
-
+  gem 'scss_lint', require: false
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem "web-console", "~> 2.0"
-
+  # Enable meta capture for Rails Panel
+  gem "meta_request"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
+
+  # tidy up console output
+  gem "awesome_print", require: "ap"
 end
