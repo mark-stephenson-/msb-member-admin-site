@@ -28,7 +28,7 @@ class BotsController < ApplicationController
 
     respond_to do |format|
       if @bot.save
-        format.html { redirect_to @bot, notice: 'Bot was successfully created.' }
+        format.html { redirect_to @bot, notice: "Bot was successfully created." }
         format.json { render :show, status: :created, location: @bot }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BotsController < ApplicationController
   def update
     respond_to do |format|
       if @bot.update(bot_params)
-        format.html { redirect_to @bot, notice: 'Bot was successfully updated.' }
+        format.html { redirect_to @bot, notice: "Bot was successfully updated." }
         format.json { render :show, status: :ok, location: @bot }
       else
         format.html { render :edit }
@@ -56,19 +56,20 @@ class BotsController < ApplicationController
   def destroy
     @bot.destroy
     respond_to do |format|
-      format.html { redirect_to bots_url, notice: 'Bot was successfully destroyed.' }
+      format.html { redirect_to bots_url, notice: "Bot was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bot
-      @bot = Bot.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def bot_params
-      params.require(:bot).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bot
+    @bot = Bot.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def bot_params
+    params.require(:bot).permit(:name)
+  end
 end
