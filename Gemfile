@@ -1,5 +1,14 @@
 source "https://rubygems.org"
 
+group :development, :test do
+  # Load environment variables
+  gem "dotenv-rails"
+  # Call "byebug" anywhere in the code to stop execution and get a debugger console
+  gem "byebug"
+  # Use rspec for testing
+  gem "rspec-rails", "~> 3.4"
+end
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "4.2.6"
 # Use postgresql as the database for Active Record
@@ -43,23 +52,16 @@ gem "koala", "~> 2.2"
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 
-group :development, :test do
-  # Call "byebug" anywhere in the code to stop execution and get a debugger console
-  gem "byebug"
-  # Use rspec for testing
-  gem "rspec-rails", "~> 3.4"
-end
-
 group :development do
   # Follow style guides
   gem "rubocop"
   gem "haml-lint"
-  gem 'scss_lint', require: false
+  gem "scss_lint", require: false
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem "web-console", "~> 2.0"
   # Enable meta capture for Rails Panel
   gem "meta_request"
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Keeping your application running in the background.
   gem "spring"
 
   # tidy up console output
