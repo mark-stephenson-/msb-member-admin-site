@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614172917) do
+ActiveRecord::Schema.define(version: 20160621142153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160614172917) do
     t.datetime "updated_at",           null: false
     t.string   "fb_page_access_token"
     t.string   "fb_page_logo_s"
+    t.string   "workflow_state"
   end
 
   add_index "managed_pages", ["user_id", "fb_page_id"], name: "index_managed_pages_on_user_id_and_fb_page_id", unique: true, using: :btree
