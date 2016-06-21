@@ -52,6 +52,9 @@ gem "koala", "~> 2.2"
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 
+# State management
+gem "workflow"
+
 group :development do
   # Follow style guides
   gem "rubocop"
